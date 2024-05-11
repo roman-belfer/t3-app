@@ -1,3 +1,4 @@
+
 # Create the Aiven service
 resource "aiven_pg" "example_pg" {
   project                 = "example-project"
