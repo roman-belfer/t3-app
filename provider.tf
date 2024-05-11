@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    aiven = {
-      source  = "aiven/aiven"
-      version = ">=4.0.0, < 5.0.0"
-    }
-    postgresql = {
-      source  = "cyrilgdn/postgresql"
-      version = "1.16.0"
-    }
-  }
-}
-
 # Create the Aiven service
 resource "aiven_pg" "example_pg" {
   project                 = "example-project"
@@ -29,8 +16,4 @@ provider "postgresql" {
   password        = aiven_pg.example_pg.service_password
   sslmode         = "require"
   connect_timeout = 15
-}
-
-resource "postgresql_role" "example_role" {
-  name     = "example-role"
 }
